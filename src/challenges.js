@@ -39,38 +39,70 @@ function highestCount() {
 function catAndMouse(mouse, cat1, cat2) {
   let distancia1 = Math.abs(cat1 - mouse);
   let distancia2 = Math.abs(cat2 - mouse);
-  if (distancia1 > distancia2){
-    return 'cat2'
-  } else if (distancia2 > distancia1){
-    return 'cat1'
+  if (distancia1 > distancia2) {
+    return 'cat2';
+  } else if (distancia2 > distancia1) {
+    return 'cat1';
   } else {
-    return 'os gatos trombam e o rato foge'
+    return 'os gatos trombam e o rato foge';
   }
 }
 
 // Desafio 8
 function fizzBuzz(arr) {
   let array = [];
-  for (let i = 0; i < arr.length; i += 1){
-    if (arr[i] % 3 === 0 && arr[i] % 5 === 0){
-      array.push("fizzBuzz");
-    } else if (arr[i] % 3 === 0){
-      array.push("fizz");
-    } else if (arr[i] % 5 === 0){
-      array.push("buzz");
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
+      array.push('fizzBuzz');
+    } else if (arr[i] % 3 === 0) {
+      array.push('fizz');
+    } else if (arr[i] % 5 === 0) {
+      array.push('buzz');
     } else {
-      array.push("bug!");
+      array.push('bug!');
     }
   }
-  return array
+  return array;
 }
 
 // Desafio 9
-function encode() {
-  // seu código aqui
+function encode(string) {
+  let codificada = '';
+  for (let i = 0; i < string.length; i += 1) {
+    if (string[i] == 'a') {
+      codificada += '1';
+    } else if (string[i] == 'e') {
+      codificada += '2';
+    } else if (string[i] == 'i') {
+      codificada += '3';
+    } else if (string[i] == 'o') {
+      codificada += '4';
+    } else if (string[i] == 'u') {
+      codificada += '5';
+    } else {
+      codificada += string[i];
+    }
+  }
+  return codificada;
 }
-function decode() {
-  // seu código aqui
+function decode(string) {
+  let decodificada = '';
+  for (let i = 0; i < string.length; i += 1) {
+    if (string[i] == '1') {
+      decodificada += 'a';
+    } else if (string[i] == '2') {
+      decodificada += 'e';
+    } else if (string[i] == '3') {
+      decodificada += 'i';
+    } else if (string[i] == '4') {
+      decodificada += 'o';
+    } else if (string[i] == '5') {
+      decodificada += 'u';
+    } else {
+      decodificada += string[i];
+    }
+  }
+  return decodificada;
 }
 
 module.exports = {
