@@ -29,11 +29,35 @@ function footballPoints(wins, ties) {
   let points = wins * 3 + ties;
   return points;
 }
+// função auxiliar
+function ordenador(array) {
+  for (let i = 1; i < array.length; i += 1) {
+    for (let j = 0; j < i; j += 1) {
+      if (array[i] > array[j]) {
+        let storage = array[i];
+        array[i] = array[j];
+        array[j] = storage;
+      }
+    }
+  }
+}
 
 // Desafio 6
-function highestCount() {
-  // seu código aqui
+function highestCount(array) {
+  array.sort();
+  if (array[0] < 0){
+    array.reverse();
+  }
+  let contador = 0;
+  for (let i = 0; i < array.length; i += 1){
+    if (array[i] === array[array.length - 1]){
+       contador += 1;
+    } 
+  }
+  return contador
 }
+
+// seu código aqui
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
@@ -69,15 +93,15 @@ function fizzBuzz(arr) {
 function encode(string) {
   let codificada = '';
   for (let i = 0; i < string.length; i += 1) {
-    if (string[i] == 'a') {
+    if (string[i] === 'a') {
       codificada += '1';
-    } else if (string[i] == 'e') {
+    } else if (string[i] === 'e') {
       codificada += '2';
-    } else if (string[i] == 'i') {
+    } else if (string[i] === 'i') {
       codificada += '3';
-    } else if (string[i] == 'o') {
+    } else if (string[i] === 'o') {
       codificada += '4';
-    } else if (string[i] == 'u') {
+    } else if (string[i] === 'u') {
       codificada += '5';
     } else {
       codificada += string[i];
@@ -88,15 +112,15 @@ function encode(string) {
 function decode(string) {
   let decodificada = '';
   for (let i = 0; i < string.length; i += 1) {
-    if (string[i] == '1') {
+    if (string[i] === '1') {
       decodificada += 'a';
-    } else if (string[i] == '2') {
+    } else if (string[i] === '2') {
       decodificada += 'e';
-    } else if (string[i] == '3') {
+    } else if (string[i] === '3') {
       decodificada += 'i';
-    } else if (string[i] == '4') {
+    } else if (string[i] === '4') {
       decodificada += 'o';
-    } else if (string[i] == '5') {
+    } else if (string[i] === '5') {
       decodificada += 'u';
     } else {
       decodificada += string[i];
