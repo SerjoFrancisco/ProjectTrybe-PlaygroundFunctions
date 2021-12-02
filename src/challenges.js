@@ -14,20 +14,20 @@ function calcArea(base, height) {
 
 // Desafio 3
 function splitSentence(string) {
-  let separado = string.split(" ");
+  let separado = string.split(' ');
   return separado;
 }
 
 // Desafio 4
 function concatName(arr) {
-  let concat = arr[arr.length - 1] + ", " + arr[0];
+  let concat = arr[arr.length - 1] + ', ' + arr[0];
   return concat;
 }
 
 // Desafio 5
 function footballPoints(wins, ties) {
-  let points = (wins * 3) + ties;
-  return points
+  let points = wins * 3 + ties;
+  return points;
 }
 
 // Desafio 6
@@ -36,8 +36,16 @@ function highestCount() {
 }
 
 // Desafio 7
-function catAndMouse() {
-  // seu código aqui
+function catAndMouse(mouse, cat1, cat2) {
+  let distancia1 = Math.abs(cat1 - mouse);
+  let distancia2 = Math.abs(cat2 - mouse);
+  if (distancia1 > distancia2){
+    return 'cat2'
+  } else if (distancia2 > distancia1){
+    return 'cat1'
+  } else {
+    return 'os gatos trombam e o rato foge'
+  }
 }
 
 // Desafio 8
