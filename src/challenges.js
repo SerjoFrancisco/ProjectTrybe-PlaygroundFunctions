@@ -28,14 +28,14 @@ function footballPoints(wins, ties) {
 
 // Desafio 6
 function highestCount(array) {
-let maior = array[0];
-let contador = 0;
-for (let i = 0; i < array.length; i += 1){
-  if (maior < array[i]){
-    maior = array[i]
-  }
-}
+  let maior = array[0];
   
+  for (let i = 0; i < array.length; i += 1) {
+    if (maior < array[i]) {
+      maior = array[i];
+    }
+  }
+  let contador = 0;
   for (let i = 0; i < array.length; i += 1) {
     if (array[i] === maior) {
       contador += 1;
@@ -43,7 +43,22 @@ for (let i = 0; i < array.length; i += 1){
   }
   return contador;
 }
-console.log(highestCount([-1,-1,-2]));
+// Resolução com gambiarra
+// function highestCount(array) {
+//   array.sort();
+//   if (array[0] < 0) {
+//     array.reverse();
+//   }
+//   let contador = 0;
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] === array[array.length - 1]) {
+//       contador += 1;
+//     }
+//   }
+//   return contador;
+// }
+
+
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
   let distancia1 = Math.abs(cat1 - mouse);
