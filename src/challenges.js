@@ -8,14 +8,12 @@ function compareTrue(b1, b2) {
 
 // Desafio 2
 function calcArea(base, height) {
-  let area = (base * height) / 2;
-  return area;
+  return (base * height) / 2;
 }
 
 // Desafio 3
 function splitSentence(string) {
-  let separado = string.split(' ');
-  return separado;
+  return string.split(' ');
 }
 
 // Desafio 4
@@ -26,8 +24,7 @@ function concatName(arr) {
 
 // Desafio 5
 function footballPoints(wins, ties) {
-  let points = wins * 3 + ties;
-  return points;
+  return wins * 3 + ties;
 }
 
 // Desafio 6
@@ -53,10 +50,11 @@ function catAndMouse(mouse, cat1, cat2) {
   let distancia2 = Math.abs(cat2 - mouse);
   if (distancia1 > distancia2) {
     return 'cat2';
-  } else if (distancia2 > distancia1) {
+  }
+  if (distancia2 > distancia1) {
     return 'cat1';
   }
-    return 'os gatos trombam e o rato foge';
+  return 'os gatos trombam e o rato foge';
 }
 
 // Desafio 8
