@@ -18,7 +18,7 @@ function splitSentence(string) {
 
 // Desafio 4
 function concatName(arr) {
-  return `${arr[arr.length - 1]}, ${arr[0]}`
+  return `${arr[arr.length - 1]}, ${arr[0]}`;
 }
 
 // Desafio 5
@@ -28,21 +28,22 @@ function footballPoints(wins, ties) {
 
 // Desafio 6
 function highestCount(array) {
-  array.sort();
-  if (array[0] < 0) {
-    array.reverse();
+let maior = array[0];
+let contador = 0;
+for (let i = 0; i < array.length; i += 1){
+  if (maior < array[i]){
+    maior = array[i]
   }
-  let contador = 0;
+}
+  
   for (let i = 0; i < array.length; i += 1) {
-    if (array[i] === array[array.length - 1]) {
+    if (array[i] === maior) {
       contador += 1;
     }
   }
   return contador;
 }
-
-// seu código aqui
-
+console.log(highestCount([-1,-1,-2]));
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
   let distancia1 = Math.abs(cat1 - mouse);
