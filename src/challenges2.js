@@ -5,7 +5,7 @@ function techList(array, name) {
   if (array.length === 0) {
     return 'Vazio!';
   }
-  for (i = 0; i < array.length; i += 1) {
+  for (let i = 0; i < array.length; i += 1) {
     let object = {
       tech: array[i],
       name: name,
@@ -67,7 +67,7 @@ function triangleCheck(lineA, lineB, lineC) {
 // Desafio 13
 function hydrate(string) {
   let contador = 0;
-  let dividido = string.match(/\d+/g);
+  let dividido = string.match(/\d/g);
   let teste = dividido.join('');
   for (let i = 0; i < teste.length; i += 1) {
     let int = +teste[i];
