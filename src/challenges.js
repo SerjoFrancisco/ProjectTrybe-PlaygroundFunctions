@@ -1,11 +1,7 @@
 // Desafio 1
 function compareTrue(b1, b2) {
-  if (b1 === true && b2 === true) {
-    return true;
-  }
-  return false;
+  return b1 && b2;
 }
-
 // Desafio 2
 function calcArea(base, height) {
   return (base * height) / 2;
@@ -28,36 +24,17 @@ function footballPoints(wins, ties) {
 
 // Desafio 6
 function highestCount(array) {
-  let maior = array[0];
-  
-  for (let i = 0; i < array.length; i += 1) {
-    if (maior < array[i]) {
-      maior = array[i];
-    }
-  }
+  let max = array.reduce(function (acc, current) {
+    return Math.max(acc, current);
+  });
   let contador = 0;
   for (let i = 0; i < array.length; i += 1) {
-    if (array[i] === maior) {
+    if (array[i] === max) {
       contador += 1;
     }
   }
   return contador;
 }
-// Resolução com gambiarra
-// function highestCount(array) {
-//   array.sort();
-//   if (array[0] < 0) {
-//     array.reverse();
-//   }
-//   let contador = 0;
-//   for (let i = 0; i < array.length; i += 1) {
-//     if (array[i] === array[array.length - 1]) {
-//       contador += 1;
-//     }
-//   }
-//   return contador;
-// }
-
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
@@ -75,60 +52,42 @@ function catAndMouse(mouse, cat1, cat2) {
 // Desafio 8
 function fizzBuzz(arr) {
   let array = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
-      array.push('fizzBuzz');
-    } else if (arr[i] % 3 === 0) {
-      array.push('fizz');
-    } else if (arr[i] % 5 === 0) {
-      array.push('buzz');
-    } else {
-      array.push('bug!');
-    }
-  }
+  arr.forEach((element) => {
+    let pusher = '';
+    if (element % 3 === 0) pusher += 'fizz';
+    if (element % 5 === 0) pusher += 'Buzz';
+    if (pusher.length === 4) pusher = pusher.toLowerCase();
+    array.push(pusher || 'bug!');
+  });
   return array;
 }
 
 // Desafio 9
 function encode(string) {
-  let codificada = '';
-  for (let i = 0; i < string.length; i += 1) {
-    if (string[i] === 'a') {
-      codificada += '1';
-    } else if (string[i] === 'e') {
-      codificada += '2';
-    } else if (string[i] === 'i') {
-      codificada += '3';
-    } else if (string[i] === 'o') {
-      codificada += '4';
-    } else if (string[i] === 'u') {
-      codificada += '5';
-    } else {
-      codificada += string[i];
+  let code = [1, 2, 3, 4, 5];
+  const letters = ['a', 'e', 'i', 'o', 'u'];
+  let result = [];
+  string.split('').forEach((element) => {
+    for (let i = 0; i < letters.length; i += 1) {
+      if (element === letters[i]) element = code[i];
     }
-  }
-  return codificada;
+    result.push(element);
+  });
+  return result.join('');
 }
+console.log(encode('aeiou'));
 function decode(string) {
-  let decodificada = '';
-  for (let i = 0; i < string.length; i += 1) {
-    if (string[i] === '1') {
-      decodificada += 'a';
-    } else if (string[i] === '2') {
-      decodificada += 'e';
-    } else if (string[i] === '3') {
-      decodificada += 'i';
-    } else if (string[i] === '4') {
-      decodificada += 'o';
-    } else if (string[i] === '5') {
-      decodificada += 'u';
-    } else {
-      decodificada += string[i];
+  let code = ['1', '2', '3', '4', '5'];
+  const letters = ['a', 'e', 'i', 'o', 'u'];
+  let result = [];
+  string.split('').forEach((element) => {
+    for (let i = 0; i < code.length; i += 1) {
+      if (element === code[i]) element = letters[i];
     }
-  }
-  return decodificada;
+    result.push(element);
+  });
+  return result.join('');
 }
-
 module.exports = {
   calcArea,
   catAndMouse,
